@@ -54,6 +54,10 @@ CONTENT = [
     u'mais plutôt en termes &lt;/initial&gt;\n',                                            # 43
     u'&lt;initial&gt; AY &lt;/initial&gt; !liikkeen\n',                                       # 44
     u'&lt;initial&gt; AY &lt;/initial&gt; ?liikkeen\n',                                       # 45
+    u"Everybody just l'&lt;initial&gt; do [noise] your job.\n",                       # 46
+    u'Everybody just do [noise] your &lt;/initial&gt; job.\n',                         # 47
+    u'&lt;/initial&gt;\n',                                                                                 # 48
+    u"Everybody just do [noise] your &lt;/initial&gt;'s job.\n",                      # 49
 ]
 
 
@@ -112,5 +116,9 @@ def test_command4(tmpdir):
     assert 43 in found
     assert 44 not in found
     assert 45 not in found
+    assert 46 in found
+    assert 47 in found
+    assert 48 in found
+    assert 49 in found
 
-    #assert 0
+    assert 0
