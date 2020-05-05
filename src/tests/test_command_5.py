@@ -55,8 +55,7 @@ tag &lt;/lang:English&gt; ČSSD and voice &lt;/lang:English&gt; perspective\n", 
     u'&lt;lang:Portuguese&gt;\n', # 42
     u'<Sync time="411.39"/>\n', # 43
     u"Peut-être pas en termes d'hommes mais plutôt en termes d'armes &lt;/lang: Portuguese&gt; ou \
-de ressources financières. Et comment va évoluer la question de l'est de \
-l'Ukraine et les relations internationales tout court.\n" # 44
+de ressources financières.\n" # 44
     u'</Turn>\n', # 45
 ]
 
