@@ -379,7 +379,7 @@ def command5(filepath):
 
     punctuation_marks = u""":,\-'_!—".?;"""
 
-    regex = re.compile(ur'(?P<content>(?P<before_first>\b\w*\b)?(?P<first_open>(?:&lt;))(?P<first_tag>/*\s*\w*\s*):(?P<first_tag_lang>\s*\w*\s*)(?P<first_close>(?:&gt;))(?P<inner_text>.*?)(?P<second_open>(?:&lt;))(?P<forward>[\/]*)(?P<second_tag>\s*\w*\s*):(?P<second_tag_lang>\s*\w*\s*)(?P<second_close>(?:&gt;))(?P<after_second>\b\w*\b)?)', re.UNICODE)
+    regex = re.compile(ur'(?P<content>(?P<before_first>\b\w*\b)?&lt;(?P<first_tag>/*\s*\w*\s*):(?P<first_tag_lang>\s*\w*\s*)&gt;(?P<inner_text>.*?)&lt;(?P<forward>[\/]*)(?P<second_tag>\s*\w*\s*):(?P<second_tag_lang>\s*\w*\s*)&gt;(?P<after_second>\b\w*\b)?)', re.UNICODE)
     opening_tag = re.compile(ur'[\w{0}]*\s*&lt;\s*\w*\s*:\s*\w*\s*&gt;[\s{0}]*[\w{0}]*'.format(punctuation_marks), re.UNICODE)
     closing_tag = re.compile(ur'[\w{0}]*\s*&lt;/\s*\w*\s*:\s*\w*\s*&gt;[\s{0}]*[\w{0}]*'.format(punctuation_marks), re.UNICODE)
 
@@ -433,13 +433,7 @@ def command5(filepath):
                         continue
 
                     # Check for wrong syntax
-                    if (
-                        match.group('first_open') != '&lt;' or
-                        match.group('first_close') != '&gt;' or
-                        match.group('second_open') != '&lt;' or
-                        match.group('second_close') != '&gt;' or
-                        match.group('forward') != '/'
-                    ):
+                    if match.group('forward') != '/':
                         found[ln] = [5, "Tag syntax error", content]
                         continue
 
