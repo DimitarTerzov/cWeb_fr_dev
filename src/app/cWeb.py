@@ -231,7 +231,8 @@ def command3(filepath):
                             tag_exists = True
 
     if not tag_exists and not found:
-        found[1] = [3, 'No sound tag were found. Please refer to the project page to learn about the required use of sound tags.', '']
+        found['warning_message'] = 'No sound tags were found. \
+Please refer to the project page to learn about the required use of sound tags.'
 
     return found
 
@@ -347,7 +348,8 @@ def command4(filepath):
                             found[ln] = [4, 'Initial tag error', error_tag]
 
     if not tag_exists and not found:
-        found[1] = [4, 'Be sure to include initial tag for any and all initialisms. If there were no initialisms, feel free to ignore this error.', '']
+        found['warning_message'] = 'Be sure to include initial tag for any and all initialisms. \
+If there were no initialisms, feel free to ignore this error.'
 
     return found
 
@@ -544,7 +546,8 @@ def command7(filepath):
                     found[ln] = [7, 'Possible filler tag missing #', match.group().encode('utf')]
 
     if not tag_exists:
-        found[1] = [7, 'No fillers tags were found. Please refer to the project page to learn about the required use of filler tags.', '']
+        found['warning_message'] = 'No fillers tags were found. Please refer to the project \
+page to learn about the required use of filler tags.'
 
     return found
 
@@ -922,7 +925,9 @@ def command15(filepath):
                 found[ln] = [15, 'Incorrect use of tilde', incorrect_tilde.group().encode('utf')]
 
     if not tag_exists and not found:
-        found[1] = [15, 'No tildes were found. Please refer to the project page to learn about the proper use of the tilde for partially spoken words. If there were no partially spoken words, feel free to ignore this error.', '']
+        found['warning_message'] = 'No tildes were found. Please refer to the project page \
+to learn about the proper use of the tilde for partially spoken words. \
+If there were no partially spoken words, feel free to ignore this error.'
 
     return found
 
